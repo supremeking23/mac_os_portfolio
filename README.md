@@ -104,3 +104,6 @@ https://astro.build/themes/details/macos-portfolio-extended/
 2. need icons - npm install lucide-react
 3. react useref
 4.
+
+Day 3 - Dock
+1. ref are important for Gsap animation
