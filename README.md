@@ -100,4 +100,7 @@ Day 1 - What have we learn ? Jan 18
 Day 2 -
 Next portion would be the welcome section  - https://www.youtube.com/watch?v=j9ZD_hlyHOA&t=458s
 https://astro.build/themes/details/macos-portfolio-extended/
-1. need gzap
+1. need gsap - npm install gsap @gsap/react
+2. need icons - npm install lucide-react
+3. react useref
+4.

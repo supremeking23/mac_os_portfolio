@@ -1,10 +1,11 @@
-import Navbar from "#components/Navbar.tsx";
+import { Navbar, Welcome } from "#components";
 
 export function App() {
   
   return (
     <main>
       <Navbar />
+      <Welcome />
     </main>
   )
 }
