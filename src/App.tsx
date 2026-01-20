@@ -1,4 +1,4 @@
-import { Navbar, Welcome } from "#components";
+import { Navbar, Welcome, Dock } from "#components";
 
 export function App() {
   
@@ -6,6 +6,7 @@ export function App() {
     <main>
       <Navbar />
       <Welcome />
+      <Dock />
     </main>
   )
 }
