@@ -18,6 +18,10 @@ const FONT_WEIGHTS = {
  * Splits text into individual <span> elements for per-letter animation.
  * Each letter gets its own span so we can animate them independently.
  * 
+ * Accessibility: The container element has aria-label set to the original text
+ * and role="text", while each individual letter span is marked with aria-hidden="true"
+ * so screen readers announce only the aria-label, not each letter individually.
+ * 
  * @param text - The text to render
  * @param className - Tailwind/CSS classes to apply to each letter
  * @param baseWeight - Initial font weight (using CSS fontVariationSettings for variable fonts)
@@ -25,11 +29,15 @@ const FONT_WEIGHTS = {
  * Note: "\u00A0" is a non-breaking space - regular spaces would collapse in HTML
  */
 const renderText = (text:string, className?:string, baseWeight:number = 400) => {
-    return [...text].map((char, index) => (
-        <span key={index} className={className} style={{fontVariationSettings: `'wght' ${baseWeight}`}}>
-            {char ===" " ? "\u00A0" : char}
+    return (
+        <span aria-label={text} role="text">
+            {[...text].map((char, index) => (
+                <span key={index} className={className} style={{fontVariationSettings: `'wght' ${baseWeight}`}} aria-hidden="true">
+                    {char ===" " ? "\u00A0" : char}
+                </span>
+            ))}
         </span>
-    ))
+    )
 };
 
 /**
@@ -176,7 +184,7 @@ const Welcome = () => {
         </h1>
 
         <div className="small-screen">
-            <p>THis Portfolio is designed for desktop/tabled screens only</p>
+            <p>This Portfolio is designed for desktop/tablet screens only</p>
         </div>
     </section>
     );
