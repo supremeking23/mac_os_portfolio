@@ -107,3 +107,9 @@ https://astro.build/themes/details/macos-portfolio-extended/
 
 Day 3 - Dock
 1. ref are important for Gsap animation
+
+Day 3 - Window Store
+1. install zustand for state management
+2. install immer for performing immutable updates
+3. code rabbit on cli - 1:27: timestamp
+4. AI handles most of the issue on types since I am using Typescript

@@ -4,8 +4,11 @@ import gsap from "gsap";
 
 import { dockApps } from "#constants";
 import { useGSAP } from "@gsap/react";
+import useWindowsStore from "#store/window";
+import type { ToggleAppParams, WindowKey } from "#types";
 
 const Dock = () => {
+    const {openWindow, closeWindow, windows } = useWindowsStore();
     const dockRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
@@ -58,8 +61,25 @@ const Dock = () => {
 
     },[]);  
 
-    const toggleApp = (app:any) => {
-        //Open window logic here
+    // Handles opening/closing a window when a dock icon is clicked
+    const toggleApp = (app: ToggleAppParams) => {
+        if (!app.canOpen) return;
+
+        // Safe to cast: we only reach here if canOpen is true,
+        // meaning the app has a corresponding window config
+        const windowKey = app.id as WindowKey;
+        const window = windows[windowKey];
+
+        if (!window) {
+            console.error(`No window found for app ID: ${app.id}`);
+            return;
+        }
+
+        if (window.isOpen) {
+            closeWindow(windowKey);
+        } else {
+            openWindow(windowKey);
+        }
     };
   return (
     <section id="dock">
