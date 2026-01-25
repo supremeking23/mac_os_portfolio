@@ -1,4 +1,5 @@
 import { Navbar, Welcome, Dock } from "#components";
+import { Terminal } from "#windows";
 
 export function App() {
   
@@ -7,6 +8,8 @@ export function App() {
       <Navbar />
       <Welcome />
       <Dock />
+
+      <Terminal />
     </main>
   )
 }

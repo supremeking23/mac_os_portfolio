@@ -113,3 +113,8 @@ Day 3 - Window Store
 2. install immer for performing immutable updates
 3. code rabbit on cli - 1:27: timestamp
 4. AI handles most of the issue on types since I am using Typescript
+
+
+Day 4 - window wrapper
+1. Higher order component - meaning ? takes a another component as an input and returns a modify version of that component
+2. Pull request comment from code rabbit: https://github.com/supremeking23/mac_os_portfolio/pull/4
